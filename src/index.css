@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-ivory text-ink-900 font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Buttons — rounded corners */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-gold-400 hover:bg-gold-500 text-white
+           font-semibold px-7 py-3 rounded-full
+           tracking-wide text-sm
+           transition-all duration-300
+           shadow-sm hover:shadow-md;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           border-2 border-gold-400 text-gold-500 hover:bg-gold-400 hover:text-white
+           font-semibold px-7 py-3 rounded-full
+           tracking-wide text-sm
+           transition-all duration-300;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           text-ink-600 hover:text-gold-500
+           font-medium text-sm transition-colors duration-200;
+  }
+
+  /* Section headings */
+  .section-label {
+    @apply text-gold-400 tracking-[0.35em] uppercase text-xs font-semibold;
+  }
+  .section-title {
+    @apply font-display text-4xl md:text-5xl text-ink-900 leading-tight;
+  }
+  .gold-divider {
+    @apply w-12 h-0.5 bg-gold-400 mx-auto my-4 rounded-full;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl border border-stone/60
+           shadow-sm hover:shadow-md
+           transition-all duration-300;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F5F3EE; }
+::-webkit-scrollbar-thumb { background: #C9973A; border-radius: 99px; }
