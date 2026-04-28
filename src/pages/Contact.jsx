@@ -5,19 +5,21 @@ export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [sent, setSent] = useState(false);
 
+  const inputClass = "w-full bg-white border border-stone focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 text-ink-900 px-4 py-3 rounded-xl outline-none transition-all text-sm placeholder-ink-400/40";
+  const labelClass = "block text-ink-600 text-xs font-semibold tracking-widest uppercase mb-2";
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setSent(true);
     setForm({ name: "", email: "", subject: "", message: "" });
   };
 
-  const inputClass = "w-full bg-white border border-stone focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 text-ink-900 px-4 py-3 rounded-xl outline-none transition-all text-sm placeholder-ink-400/50";
-
   return (
-    <main className="min-h-screen bg-ivory pt-24 pb-24">
+    <main className="min-h-screen bg-ivory pt-20 pb-20 overflow-x-hidden">
+
       {/* Header */}
-      <section className="bg-white border-b border-stone/50 py-16 text-center">
-        <div className="max-w-xl mx-auto px-6">
+      <section className="bg-white border-b border-stone/50 py-14 sm:py-16 text-center">
+        <div className="max-w-xl mx-auto px-5 sm:px-6">
           <span className="section-label mb-4 block">Get In Touch</span>
           <h1 className="section-title mb-3">We'd Love to Hear<br />From You</h1>
           <div className="gold-divider" />
@@ -27,36 +29,37 @@ export default function Contact() {
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
+      <div className="max-w-5xl mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mt-10 sm:mt-12">
+
         {/* Info */}
         <div>
-          <h2 className="font-display text-2xl text-ink-900 mb-6">Contact Information</h2>
-          <div className="space-y-4 mb-8">
+          <h2 className="font-display text-2xl text-ink-900 mb-5 sm:mb-6">Contact Information</h2>
+          <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
             {[
-              { icon: <MapPin size={18} />, label: "Location",          value: "Kampala, Uganda" },
-              { icon: <Phone size={18} />, label: "Phone / WhatsApp",   value: "+256 700 000 000" },
-              { icon: <Mail size={18} />,  label: "Email",              value: "hello@aurauganda.com" },
+              { icon: <MapPin size={17} />, label: "Location",        value: "Kampala, Uganda" },
+              { icon: <Phone size={17} />, label: "Phone / WhatsApp", value: "+256 700 000 000" },
+              { icon: <Mail size={17} />,  label: "Email",            value: "hello@aurauganda.com" },
             ].map((c) => (
-              <div key={c.label} className="card flex items-start gap-4 p-4">
-                <div className="text-gold-400 mt-0.5">{c.icon}</div>
-                <div>
+              <div key={c.label} className="card flex items-center gap-4 p-4">
+                <div className="text-gold-400 flex-shrink-0">{c.icon}</div>
+                <div className="min-w-0">
                   <p className="text-ink-400 text-xs tracking-widest uppercase mb-0.5">{c.label}</p>
-                  <p className="text-ink-900 text-sm font-medium">{c.value}</p>
+                  <p className="text-ink-900 text-sm font-medium truncate">{c.value}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="card p-6">
-            <h3 className="font-serif text-ink-900 font-semibold mb-4">Business Hours</h3>
+          <div className="card p-5 sm:p-6">
+            <h3 className="font-serif text-ink-900 font-semibold mb-4 text-sm sm:text-base">Business Hours</h3>
             <div className="space-y-2 text-sm">
               {[
                 { day: "Monday – Friday", hours: "9:00 AM – 6:00 PM" },
                 { day: "Saturday",        hours: "10:00 AM – 4:00 PM" },
                 { day: "Sunday",          hours: "Closed" },
               ].map((h) => (
-                <div key={h.day} className="flex justify-between text-ink-600">
-                  <span>{h.day}</span>
+                <div key={h.day} className="flex justify-between text-ink-600 gap-4">
+                  <span className="flex-shrink-0">{h.day}</span>
                   <span className="font-medium text-ink-900">{h.hours}</span>
                 </div>
               ))}
@@ -66,9 +69,9 @@ export default function Contact() {
 
         {/* Form */}
         <div>
-          <h2 className="font-display text-2xl text-ink-900 mb-6">Send a Message</h2>
+          <h2 className="font-display text-2xl text-ink-900 mb-5 sm:mb-6">Send a Message</h2>
           {sent ? (
-            <div className="card flex flex-col items-center justify-center gap-4 py-16 text-center">
+            <div className="card flex flex-col items-center justify-center gap-4 py-14 sm:py-16 text-center px-5">
               <CheckCircle size={48} className="text-gold-400" />
               <h3 className="font-display text-2xl text-ink-900">Message Sent!</h3>
               <p className="text-ink-400 text-sm">We'll get back to you within 24 hours.</p>
@@ -78,20 +81,20 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-ink-600 text-xs font-semibold tracking-widest uppercase mb-2">Name *</label>
+                  <label className={labelClass}>Name *</label>
                   <input required type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} placeholder="Your name" />
                 </div>
                 <div>
-                  <label className="block text-ink-600 text-xs font-semibold tracking-widest uppercase mb-2">Email *</label>
+                  <label className={labelClass}>Email *</label>
                   <input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass} placeholder="your@email.com" />
                 </div>
               </div>
               <div>
-                <label className="block text-ink-600 text-xs font-semibold tracking-widest uppercase mb-2">Subject</label>
+                <label className={labelClass}>Subject</label>
                 <input type="text" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className={inputClass} placeholder="Order enquiry, bulk order..." />
               </div>
               <div>
-                <label className="block text-ink-600 text-xs font-semibold tracking-widest uppercase mb-2">Message *</label>
+                <label className={labelClass}>Message *</label>
                 <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={inputClass + " resize-none"} placeholder="Tell us how we can help..." />
               </div>
               <button type="submit" className="btn-primary w-full py-3.5">

@@ -19,15 +19,15 @@ export default function Footer() {
     <footer className="bg-ink-900 text-white/80">
       {/* Delivery banner */}
       <div className="bg-gold-400 py-3">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-          <p className="text-white text-sm font-medium">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-1.5 text-center sm:text-left">
+          <p className="text-white text-xs sm:text-sm font-medium">
             🕯️ Free delivery within Kampala on orders over <span className="font-bold">UGX 100,000</span>
           </p>
-          <p className="text-white/80 text-xs tracking-widest uppercase">Handcrafted · 100% Natural Wax</p>
+          <p className="text-white/80 text-xs tracking-widest uppercase hidden sm:block">Handcrafted · 100% Natural Wax</p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-12 sm:py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
         {/* Brand */}
         <div className="lg:col-span-1">
           <img src="/images/Arua Uganda Logo.png" alt="Aura Uganda" className="h-11 w-auto object-contain mb-4 brightness-150" />
