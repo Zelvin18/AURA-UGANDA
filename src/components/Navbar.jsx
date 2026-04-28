@@ -41,7 +41,7 @@ export default function Navbar() {
             alt="Aura Uganda"
             className="h-9 w-auto object-contain"
           />
-          <span className="font-display text-lg text-ink-900 tracking-widest hidden sm:block">
+          <span className="font-display text-base sm:text-lg text-ink-900 tracking-widest font-bold">
             AURA <span className="text-gold-400">UGANDA</span>
           </span>
         </Link>
