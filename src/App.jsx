@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import CartDrawer from "./components/CartDrawer";
 import Footer from "./components/Footer";
@@ -14,7 +15,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <div className="min-h-screen flex flex-col bg-charcoal-900">
+        <div className="min-h-screen flex flex-col bg-ivory">
+          <ScrollToTop />
           <Navbar />
           <CartDrawer />
           <div className="flex-1">
